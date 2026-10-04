@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Code Scanner & Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- QR Scanner Library -->
+    <script src="https://unpkg.com/html5-qrcode" defer></script>
+
+    <!-- QR Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>📱 QR Code Scanner</h1>
+            <p>Scan and create QR codes easily</p>
+        </header>
+
+        <!-- Navigation -->
+
+        <div class="tabs">
+
+            <button
+                id="scannerTab"
+                class="tab active"
+                onclick="showScanner()">
+                📷 Scanner
+            </button>
+
+            <button
+                id="generatorTab"
+                class="tab"
+                onclick="showGenerator()">
+                ✨ Generator
+            </button>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- SCANNER SECTION -->
+        <!-- ========================= -->
+
+        <section id="scannerSection" class="section">
+
+            <h2>Scan a QR Code</h2>
+
+            <p class="description">
+                Allow camera access and point your camera at a QR code.
+            </p>
+
+            <div id="reader"></div>
+
+            <div id="scanResult" class="result hidden">
+
+                <h3>✅ QR Code Detected</h3>
+
+                <div id="resultText"></div>
+
+                <button
+                    class="copy-btn"
+                    onclick="copyResult()">
+                    📋 Copy Result
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- GENERATOR SECTION -->
+        <!-- ========================= -->
+
+        <section
+            id="generatorSection"
+            class="section hidden">
+
+            <h2>Create a QR Code</h2>
+
+            <p class="description">
+                Enter text, a URL, phone number, or any information.
+            </p>
+
+            <textarea
+                id="qrText"
+                placeholder="Enter text or URL here..."
+                rows="4"></textarea>
+
+            <button
+                class="generate-btn"
+                onclick="generateQR()">
+                ✨ Generate QR Code
+            </button>
+
+            <div id="qrcode"></div>
+
+            <button
+                id="downloadBtn"
+                class="download-btn hidden"
+                onclick="downloadQR()">
+                📥 Download QR Code
+            </button>
+
+        </section>
+
+
+        <footer>
+            <p>QR Scanner & Generator</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
